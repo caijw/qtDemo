@@ -24,9 +24,15 @@ HEADERS += \
 
 FORMS += \
     mainwindow.ui \
-    one_ainwindow.ui
+    one_mainwindow.ui \
+    placeholder.ui \
+    three_mainwindow.ui \
+    two_mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    source.qrc
