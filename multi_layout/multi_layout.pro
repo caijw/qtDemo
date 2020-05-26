@@ -17,14 +17,25 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    one_mainwindow.cpp \
+    padding.cpp \
+    placeholder.cpp \
+    three_mainwindow.cpp \
+    two_mainwindow.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    one_mainwindow.h \
+    padding.h \
+    placeholder.h \
+    three_mainwindow.h \
+    two_mainwindow.h
 
 FORMS += \
     mainwindow.ui \
     one_mainwindow.ui \
+    padding.ui \
     placeholder.ui \
     three_mainwindow.ui \
     two_mainwindow.ui
@@ -35,4 +46,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    source.qrc
+    resources.qrc

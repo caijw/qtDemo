@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>OneMainWindow</class>
+ <widget class="QMainWindow" name="OneMainWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -31,7 +31,7 @@
      <number>0</number>
     </property>
     <item row="0" column="0">
-     <layout class="QVBoxLayout" name="verticalLayout_2"/>
+     <layout class="QVBoxLayout" name="layout"/>
     </item>
    </layout>
   </widget>
