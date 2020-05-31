@@ -17,10 +17,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    thread.cc \
+    waitable_event.cc
 
 HEADERS += \
-    mainwindow.h
+    macros.h \
+    mainwindow.h \
+    thread.h \
+    ui_thread.h \
+    waitable_event.h
 
 FORMS += \
     mainwindow.ui
