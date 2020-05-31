@@ -25,6 +25,7 @@ class UVThread {
 //  fml::RefPtr<fml::TaskRunner> task_runner_;
   std::atomic_bool joined_;
   uv_loop_t *loop;
+  static void wait_for_a_while(uv_idle_t* handle);
   FML_DISALLOW_COPY_AND_ASSIGN(UVThread);
 };
 

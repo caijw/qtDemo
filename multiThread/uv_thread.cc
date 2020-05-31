@@ -5,17 +5,24 @@
 #include "waitable_event.h"
 #include <unistd.h>
 #include <iostream>
+#include "stdlib.h"
 
 UVThread::UVThread(const std::string& name) : joined_(false) {
   AutoResetWaitableEvent latch;
-  thread_ = std::unique_ptr<std::thread>(new std::thread( [&latch, name]() -> void {
+  thread_ = std::unique_ptr<std::thread>(new std::thread( [&latch, name, this]() -> void {
       SetCurrentThreadName(name);
+      loop = uv_default_loop();
+      uv_loop_init(loop);
+      uv_idle_t idler;
+      idler.data = this;
+      uv_idle_init(uv_default_loop(), &idler);
+      uv_idle_start(&idler, wait_for_a_while);
+
       latch.Signal();
-      // TODO(kingweicai): run uv loop
-      while(true) {
-        sleep(1);
-        std::cout << "thread running" << std::endl;
-      }
+
+      uv_run(loop, UV_RUN_DEFAULT);
+      uv_loop_close(loop);
+      free(loop);
     }) );
   latch.Wait();
 }
@@ -37,5 +44,10 @@ void UVThread::SetCurrentThreadName(const std::string& name) {
     return;
   }
    pthread_setname_np(pthread_self(), name.c_str());
+}
+
+void UVThread::wait_for_a_while(uv_idle_t* handle) {
+    std::cout << "idle run" << std::endl;
+    sleep(1);
 }
 
