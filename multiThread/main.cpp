@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include <QApplication>
-#include "thread.h"
+#include "uv_thread.h"
 #include <memory>
 
 

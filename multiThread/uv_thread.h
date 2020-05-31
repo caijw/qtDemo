@@ -1,17 +1,18 @@
-#ifndef THREAD_H
-#define THREAD_H
+#ifndef UV_THREAD_H
+#define UV_THREAD_H
 
 #include <atomic>
 #include <memory>
 #include <thread>
 #include "macros.h"
+#include "uv.h"
 
 
-class Thread {
+class UVThread {
  public:
-  explicit Thread(const std::string& name = "");
+  explicit UVThread(const std::string& name = "");
 
-  ~Thread();
+  ~UVThread();
 
 //  fml::RefPtr<fml::TaskRunner> GetTaskRunner() const;
 
@@ -23,8 +24,8 @@ class Thread {
   std::unique_ptr<std::thread> thread_;
 //  fml::RefPtr<fml::TaskRunner> task_runner_;
   std::atomic_bool joined_;
-
-  FML_DISALLOW_COPY_AND_ASSIGN(Thread);
+  uv_loop_t *loop;
+  FML_DISALLOW_COPY_AND_ASSIGN(UVThread);
 };
 
 #endif // THREAD_H

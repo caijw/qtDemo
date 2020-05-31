@@ -1,4 +1,4 @@
-#include "thread.h"
+#include "uv_thread.h"
 #include <pthread.h>
 #include <memory>
 #include <string>
@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include <iostream>
 
-Thread::Thread(const std::string& name) : joined_(false) {
+UVThread::UVThread(const std::string& name) : joined_(false) {
   AutoResetWaitableEvent latch;
   thread_ = std::unique_ptr<std::thread>(new std::thread( [&latch, name]() -> void {
       SetCurrentThreadName(name);
@@ -20,11 +20,11 @@ Thread::Thread(const std::string& name) : joined_(false) {
   latch.Wait();
 }
 
-Thread::~Thread() {
+UVThread::~UVThread() {
   Join();
 }
 
-void Thread::Join() {
+void UVThread::Join() {
   if (joined_) {
     return;
   }
@@ -32,7 +32,7 @@ void Thread::Join() {
   thread_->join();
 }
 
-void Thread::SetCurrentThreadName(const std::string& name) {
+void UVThread::SetCurrentThreadName(const std::string& name) {
   if (name == "") {
     return;
   }
