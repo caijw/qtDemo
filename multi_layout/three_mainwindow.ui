@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout">
+   <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,1,1">
     <property name="spacing">
      <number>0</number>
     </property>
@@ -31,13 +31,76 @@
      <number>0</number>
     </property>
     <item>
-     <layout class="QVBoxLayout" name="leftLayout"/>
+     <widget class="QWidget" name="leftWidget" native="true">
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <layout class="QVBoxLayout" name="leftLayout"/>
+       </item>
+      </layout>
+     </widget>
     </item>
     <item>
-     <layout class="QVBoxLayout" name="middleLayout"/>
+     <widget class="QWidget" name="middleWidget" native="true">
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <layout class="QVBoxLayout" name="middleLayout"/>
+       </item>
+      </layout>
+     </widget>
     </item>
     <item>
-     <layout class="QVBoxLayout" name="rightLayout"/>
+     <widget class="QWidget" name="rightWidget" native="true">
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <layout class="QVBoxLayout" name="rightLayout"/>
+       </item>
+      </layout>
+     </widget>
     </item>
    </layout>
   </widget>
